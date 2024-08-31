@@ -27,8 +27,11 @@ jobs:
             npx html-validator-cli --file="$file"
           done
       
+      - name: List files
+        run: ls -laR
+
       - name: Validate CSS
-        run: npx stylelint "**/*.css" 
+        run: npx stylelint --config .stylelintrc "**/*.css" 
       
       - name: Validate JavaScript
         run: npx eslint "**/*.js"
