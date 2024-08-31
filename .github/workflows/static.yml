@@ -22,7 +22,10 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Validate HTML
-        run: npx html-validator-cli --directory .
+        run: |
+          for file in $(find . -name "*.html"); do
+            npx html-validator-cli --file="$file"
+          done
       
       - name: Validate CSS
         run: npx stylelint "**/*.css"
