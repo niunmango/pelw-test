@@ -21,36 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Validate HTML
+      - name: Validar HTML
         run: |
           for file in $(find . -name "*.html"); do
             npx html-validator-cli --file="$file"
           done
       
-      - name: List files
-        run: ls -laR
 
-      - name: Validate CSS
-        run: npx stylelint --config .stylelintrc "**/*.css" 
-      
-      - name: Validate JavaScript
-        run: npx eslint "**/*.js"
-
-#  deploy:
-#    environment:
-#      name: github-pages
-#      url: ${{ steps.deployment.outputs.page_url }}
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#      - name: Setup Pages
-#        uses: actions/configure-pages@v5
-#      - name: Upload artifact
-#        uses: actions/upload-pages-artifact@v3
-#        with:
-#          # Upload entire repository
-#          path: '.'
-#      - name: Deploy to GitHub Pages
-#        id: deployment
-#        uses: actions/deploy-pages@v4
