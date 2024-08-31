@@ -3,3 +3,7 @@
     border: 10;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+p {
+    display: none;
+}
