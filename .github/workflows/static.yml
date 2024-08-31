@@ -29,6 +29,8 @@ jobs:
       
       - name: Validate CSS
         run: npx stylelint "**/*.css"
+        env:
+          CONFIG_PATH: .stylelintrc.json
       
       - name: Validate JavaScript
         run: npx eslint "**/*.js"
